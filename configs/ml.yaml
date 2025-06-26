@@ -1,0 +1,7 @@
+# Machine learning module configuration
+alpha_model: default
+regime_classifier: default
+sizer: default
+cost_predictor: default
+auto_tuner: default
+anomaly_detector: default

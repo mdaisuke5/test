@@ -1,0 +1,5 @@
+# Core configuration
+broker: paper
+strategy:
+  name: rule_based
+  rules: []
