@@ -1,0 +1,28 @@
+session: day_night
+walkforward:
+  start: 2019-01-01
+  end: 2024-12-31
+  step_months: 6
+paper:
+  start: 2025-01-01
+  end: 2025-05-31
+params:
+  ema_fast: 12
+  ema_slow: 36
+  vwap_sigma: 0.2
+  adx_period: 14
+  adx_threshold: 25
+  atr_period: 14
+  tp_mult: 4.0
+  sl_mult: 1.0
+  ema_slope_period: 55
+  ema_slope_tf: 5m
+risk:
+  per_trade_pct: 0.002
+  max_intraday_dd: 0.02
+  throttle_hour: 6
+  throttle_day: 20
+  kelly: false
+execution:
+  tick_value: 100
+  contract: nikkei225mini

@@ -1,0 +1,29 @@
+version: '3.9'
+services:
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+  grafana:
+    image: grafana/grafana:10.4.2
+    depends_on:
+      - prometheus
+    ports:
+      - "3000:3000"
+  strategy:
+    build: .
+    environment:
+      - ENVIRONMENT=${ENVIRONMENT:-development}
+    env_file:
+      - .env.sample
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      - redis
+    command: ["/bin/bash", "./run_live.sh"]
